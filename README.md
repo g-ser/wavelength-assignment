@@ -6,12 +6,12 @@ The scripts of the current repository are intended to solve the problem of wavel
   * Coloring in degree order:
     1. Assign to the node with the highest degree in the auxiliary graph a color. If there are a lot of nodes with the same degree just choose randomly one of them.
     2. Go to the node with the highest degree which is not painted so far. 
-    3. For the node that you chose at step 2 check its neighboring nodes. 
-       * If all the colors that have been assigned so far are in the neighbors of the node that you chose at step 2 then assign a new color to the node
+    3. For the node that you chose at step b check its neighboring nodes. 
+       * If all the colors that have been assigned so far are in the neighbors of the node that you chose at step b then assign a new color to the node
        * If a is not true then assign to the node an already assigned color
     4. Are there more nodes on the auxiliary graph?
-       * If 4 is true then go to step 2
-       * If 4 is NOT true then go to step 5
+       * If d is true then go to step b
+       * If d is NOT true then go to step e
     5. Terminate the algorithm 
 
   * Coloring in alternate order
