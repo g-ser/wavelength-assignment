@@ -32,7 +32,7 @@ First of all we have to introduce the graph which will be the basis for our exam
 
 ![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/givengraph.png)
 
-### Choose a set of lightpaths and run the shortest path algorithm.
+### Choose a set of lightpaths and run the shortest path algorithm
 
 We also have to pick some lightpaths. See the table below for the chosen lightpaths (no particular reason for choosing the ones shown bellow).
 
@@ -58,7 +58,7 @@ After running the shortest path algorithm, we find the intermediate nodes of eac
  6                |7               |3,2                 |1
  7                |11              |5                   |8
 
-### Construction of the auxiliary graph.
+### Construction of the auxiliary graph
 
  The next step is to make the **auxiliary graph** as described before. Note that each of the lightpaths, now becomes a node in the auxiliary graph.    
 
@@ -69,3 +69,22 @@ After running the shortest path algorithm, we find the intermediate nodes of eac
 The estimation is based on the auxiliary graph and the identity function. We have to plot the identity function and the degrees of the nodes in descending order that are included in the auxiliary graph (starting from the node with the greatest degree, then moving to the node with the next highest degree etc). The point of the intersection increased by one, gives the estimation of the colors needed colors to color the auxiliary graph in degree order.
 
  ![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/estimationdegreeorder.png)
+
+### Coloring of auxiliary graph in degree order
+
+![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/coloring_degree_order.png)
+
+### Illustration of the lightpaths on the original graph when coloring in degree order is used
+Remember that the colors correspond to wavelengths. Also note that black lines are not part of the solution (they just represent the physical links between the nodes) 
+
+![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/originalgraphcoloreddegreeorder.png)
+
+### Coloring of auxiliary graph in alternate order
+
+![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/coloring_alternate_order.png)
+
+### Illustration of the lightpaths on the original graph when coloring in alternate order is used
+Note that the colors correspond to wavelengths. Also remember that black lines are not part of the solution (they just represent the physical links between the nodes) 
+
+![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/originalgraphcoloredalternateorder.png)
+
