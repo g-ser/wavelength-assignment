@@ -34,7 +34,7 @@ First of all we have to introduce the graph which will be the basis for our exam
 
 We also have to pick some lightpaths. See the table below for the chosen lightpaths (no particular reason for choosing the ones shown bellow).
 
- No. of lightpath |   Source Node  | Destination Node
+ No. of lightpath |   Source node  | Destination node
  -----------------|----------------|------------------
  1                |9               |11
  2                |11              |6
@@ -43,3 +43,15 @@ We also have to pick some lightpaths. See the table below for the chosen lightpa
  5                |1               |6
  6                |7               |1
  7                |11              |8
+
+ After running the shortest path algorithm, we find the intermediate nodes of each of the above paths. 
+
+ No. of lightpath |   Source node  | Intermediate Nodes |Destination node
+ -----------------|----------------|--------------------|------------------
+ 1                |9               |2,3,5               |11
+ 2                |11              |5,4                 |6
+ 3                |6               |4,10,3              |7
+ 4                |9               |2,3                 |7
+ 5                |1               |2,4                 |6
+ 6                |7               |3,2                 |1
+ 7                |11              |5                   |8
