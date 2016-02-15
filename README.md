@@ -1,2 +1,2 @@
 # wavelength-assignment
-![alt tag](https://raw.github.com/g-ser/wavelength-assignment/blob/master/pictures/givengraph.png)
+![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/givengraph.png)
