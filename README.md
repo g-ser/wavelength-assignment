@@ -3,10 +3,10 @@ The scripts of the current repository are intended to solve the problem of wavel
 
  
 
- Markup : * Construction of the auxiliary graph: Each lightpath becomes a node (vertex) in the auxiliary graph. When two lightpaths share the same fiber link, the corresponding vertices of the auxiliary graph should be connected. 
-           * Nested bullet
-           * Sub-nested bullet etc
-          * Color the nodes of the auxiliary graph such that no two adjacent nodes have the same color. Module [assignwavelengths.py](https://github.com/g-ser/wavelength-assignment/blob/master/assignwavelengths.py) includes function coloringGraph which is able to perform the coloring of a given graph using two different algorithms based on the input given to the function. 
+         * Construction of the auxiliary graph: Each lightpath becomes a node (vertex) in the auxiliary graph. When two lightpaths share the same fiber link, the corresponding vertices of the auxiliary graph should be connected. 
+             * Nested bullet
+             * Sub-nested bullet etc
+         * Color the nodes of the auxiliary graph such that no two adjacent nodes have the same color. Module [assignwavelengths.py](https://github.com/g-ser/wavelength-assignment/blob/master/assignwavelengths.py) includes function coloringGraph which is able to perform the coloring of a given graph using two different algorithms based on the input given to the function. 
 
 ⋅⋅* Unordered sub-list.
 
