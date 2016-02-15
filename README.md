@@ -46,7 +46,7 @@ We also have to pick some lightpaths. See the table below for the chosen lightpa
  6                |7               |1
  7                |11              |8
 
- After running the shortest path algorithm, we find the intermediate nodes of each of the above paths. 
+After running the shortest path algorithm, we find the intermediate nodes of each of the above paths. 
 
  No. of lightpath |   Source node  | Intermediate Nodes |Destination node
  -----------------|----------------|--------------------|------------------
@@ -58,13 +58,13 @@ We also have to pick some lightpaths. See the table below for the chosen lightpa
  6                |7               |3,2                 |1
  7                |11              |5                   |8
 
- ### Construction of the auxiliary graph.
+### Construction of the auxiliary graph.
 
  The next step is to make the **auxiliary graph** as described before. Note that each of the lightpaths, now becomes a node in the auxiliary graph.    
 
  ![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/auxiliarygraph.png)
 
- ### Estimation of needed colors in degree order
+### Estimation of needed colors in degree order
 
 The estimation is based on the auxiliary graph and the identity function. We have to plot the identity function and the degrees of the nodes in descending order that are included in the auxiliary graph (starting from the node with the greatest degree, then moving to the node with the next highest degree etc). The point of the intersection increased by one, gives the estimation of the colors needed colors to color the auxiliary graph in degree order.
 
