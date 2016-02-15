@@ -26,7 +26,7 @@ The scripts of the current repository are intended to solve the problem of wavel
 
 
 ##Illustrative Example
-An example will be presented below in order to illustrate how the wavelength assignment works. In the example below, the auxiliary graph is colored using both coloring in degree order and then coloring in alternate order. Also, in both cases, we estimate the number of colors that are going to be used.  
+An example will be presented below in order to illustrate how the wavelength assignment works. By running the script named as [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py), the results shown below are derived. In the example below, the auxiliary graph is colored using both coloring in degree order and then coloring in alternate order. Also, in both cases, we estimate the number of colors that are going to be used.  
 
 First of all we have to introduce the graph which will be the basis for our example. The "original" graph has been decided to be the one depicted below. As can be seen, each of the edges that connect the nodes of the graph (you can imagine the edges as fiber links in an optical fiber network) is assigned with a weight which will be used as an input to the shortest path algorithm in order to find the intermediate nodes based on the source and destination node of a given lightpath. 
 
