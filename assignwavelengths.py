@@ -3,7 +3,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-import PathDrawer as pathdr
+import pathdrawer as pathdr
 import copy
 
 def printGraph(graph,nodeColor=["blue"]):
