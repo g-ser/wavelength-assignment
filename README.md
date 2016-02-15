@@ -26,9 +26,20 @@ The scripts of the current repository are intended to solve the problem of wavel
 
 
 ##Illustrative Example
-An example will be presented below in order to illustrate how the wave length assignment works. In the example below, the auxiliary graph is colored using both the Also the number of colors that are going to be used are estimated 
+An example will be presented below in order to illustrate how the wavelength assignment works. In the example below, the auxiliary graph is colored using both coloring in degree order and then coloring in alternate order. Also, in both cases, we estimate the number of colors that are going to be used.  
 
-
-First of all we have to introduce the graph which will be the basis for our example. The "original" graph has been decided to be the one depicted below. 
+First of all we have to introduce the graph which will be the basis for our example. The "original" graph has been decided to be the one depicted below. As can be seen, each of the edges that connect the nodes of the graph (you can imagine the edges as fiber links in an optical fiber network) is assigned with a weight which will be used as an input to the shortest path algorithm in order to find the intermediate nodes based on the source and destination node of a given lightpath. 
 
 ![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/givengraph.png)
+
+We also have to pick some lightpaths. See the table below for the chosen lightpaths (no particular reason for choosing the ones shown bellow).
+
+ No. of lightpath |   Source Node  | Destination Node
+ -----------------|----------------|------------------
+ 1                |9               |11
+ 2                |11              |6
+ 3                |6               |7
+ 4                |9               |7
+ 5                |1               |6
+ 6                |7               |1
+ 7                |11              |8
