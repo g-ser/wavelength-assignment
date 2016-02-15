@@ -55,3 +55,7 @@ We also have to pick some lightpaths. See the table below for the chosen lightpa
  5                |1               |2,4                 |6
  6                |7               |3,2                 |1
  7                |11              |5                   |8
+
+ The next step is to make the auxiliary graph as we described before. 
+
+ ![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/auxiliarygraph.png)
