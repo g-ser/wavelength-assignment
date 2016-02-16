@@ -18,8 +18,8 @@ The scripts of the current repository are intended to solve the problem of wavel
     1. Assign to the node with the smallest degree in the auxiliary graph a color 
     2. Go to the node that has the next smallest degree (when a node's degree is calculated, the edges with its neighbors that have been proceeded (colored) by the algorithm are not considered) 
     3. For the node that you pick at step b check its neighboring nodes. 
-       * If all the colors that have been assigned so far are in the neighbors of the node (that you chose at step b), then assign a new color to the node otherwise assign to the node an already assigned color
-    4. Are there elements in delete_order vector that have not been accessed so far?
+       * If all the colors that have been assigned so far are in the neighbors of the node (that you chose at step b), then assign a new color to the node, otherwise assign to the node an already assigned color
+    4. Are there nodes that have not been accessed so far?
        * If d is true then go to step b
        * If d is NOT true then go to step e
     5. Terminate the algorithm 
