@@ -1,4 +1,4 @@
-# wavelength-assignment
+# Wavelength Assignment Problem
 The scripts of the current repository are intended to solve the problem of wavelength assignment which can be stated as follows: given a graph with a set of nodes connected with fiber links (optical fiber network) and a set of lightpaths and their routes, assign a wavelength to each lightpath, in a way that no two lightpaths share the same wavelength on a given fiber link (any two lightpaths that are sharing the same physical link are assigned different wavelengths). In addition, the assignment of wavelengths should be done in a way that minimizes the number of wavelengths used. The problem can be seen as a graph-coloring problem which consists of the two following steps:
  
 * **Construct the auxiliary graph**: Each lightpath becomes a node (vertex) in the auxiliary graph. When two lightpaths share the same fiber link, the corresponding vertices of the auxiliary graph should be connected. 
@@ -24,6 +24,10 @@ The scripts of the current repository are intended to solve the problem of wavel
        * If d is NOT true then go to step e
     5. Terminate the algorithm 
 
+#### Notes
++ You have to have installed the networkX package to run the python scripts included in this repository. NetworkX package is used for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. For more information about the installation of NetworkX please press [here](http://networkx.github.io/documentation/latest/index.html),
++ In order to test the scripts you can run the [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py) script which is the basis for the Illustrative Example that follows.
++ After you have downloaded on your pc all the scripts included in the current repository, you can modify [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py) script in order to use your own graph and your own lightpaths as inputs to the algorithms (in this way you can further test whether the scripts lead to reasonable solutions)
 
 ## Illustrative Example
 An example will be presented below in order to illustrate how the wavelength assignment works. By running the script named as [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py), the results shown below are derived. In the example below, the auxiliary graph is colored using both coloring in degree order and then coloring in alternate order. Also, in both cases, we estimate the number of colors that are going to be used.  
