@@ -8,7 +8,7 @@ The scripts of the current repository are intended to solve the problem of wavel
     2. Go to the node with the highest degree which is not painted so far. 
     3. For the node that you chose at step b check its neighboring nodes. 
        * If all the colors that have been assigned so far are in the neighbors of the node that you chose at step b then assign a new color to the node
-       * If a is not true then assign to the node an already assigned color
+       * If the above is not true then assign to the node an already assigned color
     4. Are there more nodes on the auxiliary graph?
        * If d is true then go to step b
        * If d is NOT true then go to step e
@@ -25,9 +25,9 @@ The scripts of the current repository are intended to solve the problem of wavel
     5. Terminate the algorithm 
 
 #### Notes
-+ You have to have installed the networkX package to run the python scripts included in this repository. NetworkX package is used for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. For more information about the installation of NetworkX please press [here](http://networkx.github.io/documentation/latest/index.html),
-+ In order to test the scripts you can run the [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py) script which is the basis for the Illustrative Example that follows.
-+ After you have downloaded on your pc all the scripts included in the current repository, you can modify [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py) script in order to use your own graph and your own lightpaths as inputs to the algorithms (in this way you can further test whether the scripts lead to reasonable solutions)
++ You have to have installed the networkX package to run the python scripts included in this repository. NetworkX package is used for the creation, manipulation, and study of the structure, dynamics, and functions of complex networks. For more information about the installation of NetworkX please press [here](http://networkx.github.io/documentation/latest/index.html).
++ In order to test the scripts you can run the [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py) script which is the basis for the **Illustrative Example** that follows.
++ After you have downloaded all the scripts included in the current repository on your pc, you can modify [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py) script in order to use your own graph and your own lightpaths as inputs to the algorithms (in this way you can further test whether the scripts lead to reasonable solutions).
 
 ## Illustrative Example
 An example will be presented below in order to illustrate how the wavelength assignment works. By running the script named as [testongivengraph.py](https://github.com/g-ser/wavelength-assignment/blob/master/testongivengraph.py), the results shown below are derived. In the example below, the auxiliary graph is colored using both coloring in degree order and then coloring in alternate order. Also, in both cases, we estimate the number of colors that are going to be used.  
