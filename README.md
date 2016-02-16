@@ -70,7 +70,7 @@ After running the shortest path algorithm, we find the intermediate nodes of eac
 
 ### Estimation of needed colors in degree order
 
-The estimation is based on the auxiliary graph and the identity function. We have to plot the identity function and the degrees of the nodes in descending order that are included in the auxiliary graph (starting from the node with the highest degree, then moving to the node with the next highest degree etc). The point of the intersection increased by one, gives the estimation of the colors needed colors to color the auxiliary graph in degree order.
+The estimation is based on the auxiliary graph and the identity function. We have to plot the identity function and the degrees of the nodes in descending order that are included in the auxiliary graph (starting from the node with the highest degree, then moving to the node with the next highest degree etc). The point of the intersection increased by one, gives the estimation of the colors needed to color the auxiliary graph in degree order.
 
  ![alt tag](https://raw.githubusercontent.com/g-ser/wavelength-assignment/master/pictures/estimationdegreeorder.png)
 
