@@ -6,27 +6,36 @@ import matplotlib.patches as mpatches
 import pathdrawer as pathdr
 import copy
 
-def printGraph(graph,nodeColor=["blue"]):
-    #positions for all nodes
-    pos=nx.spring_layout(graph)
+def createGraph(no_of_nodes):
+    """
+    This function creates an empty graph (no edges) based on the given 
+    number of nodes
+    """
+    newGraph=nx.Graph()
+    newGraph.add_nodes_from(range(1,no_of_nodes))
+    return newGraph
 
-    #draw the nodes of the graph
-    nx.draw_networkx_nodes(graph, pos, node_size=500, node_color=nodeColor)
+def addEdges(graph, edges):
+    """
+    This function adds edges to a given graph together with their weights
+    """
+    for i in edges:
+        graph.add_edge(i[0],i[1], weight=i[2])
+    return graph
 
-    #draw the edges of the graph
-    nx.draw_networkx_edges(graph, pos, width=4, edge_color="black")
+def shortestPath(graph, lightpaths):
+    """
+    Given a set of lightpaths, the current function is able to find the intermediate nodes
+    based on the shortest path algorithm
+    """    
+    shortest_path_routes={}
+    for key, value in lightpaths.iteritems():
+        z=nx.shortest_path(graph, source=value[0],target=value[1], weight="weight")
+        shortest_path_routes.update({key:tuple(z)})
 
-    #print labels
-    nx.draw_networkx_labels(graph, pos, font_size=14, font_family="sans-serif")
-
-    #print the labels related to the edges
-    labels=nx.get_edge_attributes(graph, "weight")
-    nx.draw_networkx_edge_labels(graph, pos, edge_labels=labels)
-
-    plt.axis("off") #do not plot any axis
-    plt.show() #display
-
-def haveCommonEdge(route_1,route_2):
+    return shortest_path_routes
+ 
+def haveCommonEdge(route_1, route_2):
     """
     This function receives two routes (python lists) and returns True in 
     case they share a common edge
@@ -84,11 +93,16 @@ def estimateColorsDegreeOrder(graph):
     points_degreeOfNodes=[(x[i],degreeOfNodes[i]) for i in range(0,len(degreeOfNodes))]
     intersect_point=[i for i in points_x if i in points_degreeOfNodes]
     estimated_colors=intersect_point[0][0]+1
+    plotEstimation(x,estimated_colors, degreeOfNodes)
     
-    """Plot the results"""
-    plt.title("Estimation of needed colors in degree order: %d (point of intersection +1)" %estimated_colors)
+def plotEstimation(x, estimation, degrees):
+    """
+    This function plots the results regarding the colors needed to color the nodes of a graph
+    in degree order
+    """
+    plt.title("Estimation of needed colors in degree order: %d (point of intersection +1)" %estimation)
     p1, = plt.plot(x,x, label="Identity Function", linestyle='None', color='r',marker='o')
-    p2, = plt.plot(x, degreeOfNodes, linestyle='None', marker='.', label="Degree of nodes")
+    p2, = plt.plot(x, degrees, linestyle='None', marker='.', label="Degree of nodes")
     l1 = plt.legend([p1], ["Identity Function"], loc=2)
     l2 = plt.legend([p2], ["Degree of nodes"], loc=4) 
     plt.gca().add_artist(l1)  
@@ -155,9 +169,7 @@ def coloringGraph(graph, coloring_order="degree_order"):
     loring of a graph using two algorithms depending on the value of the attribute 
     coloring_order. The available algorithms are the coloring of the graph in degree_order
     and the coloring of the graph in alternate order.
-    """
-
-    """
+        
     The worst case scenario can happen when we need as many colors as the nodes of the graph.
     So the number of available colors should be equal to the number of nodes included in the graph.
     Each number in the "colors" list represents a different color
@@ -170,57 +182,53 @@ def coloringGraph(graph, coloring_order="degree_order"):
         order_of_nodes=nodesDescendingOrder(graph)
     elif coloring_order=="alternate_order":
         order_of_nodes=alternateOrder(graph)[0]
-    #print order_of_nodes
     nodeAndColor[order_of_nodes[0]]=colors[0] #assign a color to the first node of the order_of_nodes list
     assigned_colors.append(colors[0])
     for i in range (1, nx.number_of_nodes(graph)):    
         adj_nodes.extend(graph.neighbors(order_of_nodes[i])) #nodes connected to the node with the highest degree 
-        #print("The adj nodes of node %s are: %s" %(order_of_nodes[i],set(adj_nodes)))
         adj_nodes=list(set(adj_nodes))
         for adj_node in adj_nodes:
             for key, value in nodeAndColor.iteritems():
                 if adj_node==key:
                     colorsAssignedtoNeighbors.append(value)
-        #print("The colors that are assigned to neighbors are %s" %set(colorsAssignedtoNeighbors))
-        #print("The colors that have been assigned so far are %s" %set(assigned_colors))
         if set(colorsAssignedtoNeighbors) == set(assigned_colors):
             not_used_colors=list(set(colors)-set(assigned_colors))
             assigned_colors.append(not_used_colors[0])
             nodeAndColor.update({order_of_nodes[i]:not_used_colors[0]})
-            #print("The non used colors are %s" %not_used_colors)
-            #print("The assigned color of node %s is %s" %(order_of_nodes[i],not_used_colors[0]))
         else:
             existing_colors=list(set(assigned_colors)-set(colorsAssignedtoNeighbors)) 
             nodeAndColor.update({order_of_nodes[i]:existing_colors[0]})
-            #print("The colors that exist on the graph and have NOT been assigned to neighbors are %s" %existing_colors)
-            #print("*The assigned color of node %s is %s" %(order_of_nodes[i],existing_colors[0]))
         colorsAssignedtoNeighbors, existing_colors, adj_nodes, not_used_colors=[], [], [], []
-    
-    #print the colored auxiliary graph
     [final_colors.append(nodeAndColor[i]) for i in range(1, len(nodeAndColor)+1)]
        
-    #printGraph(graph, final_colors) 
-    #print final_colors
-    print("Node and color %s" %nodeAndColor)
-    return (nodeAndColor,final_colors)
+    return final_colors
 
-def drawColoredPathsOnGivenGraph(graph, auxiliaryGraph, followed_path, coloring_algorithm):
-    print("The followed path is %s" %followed_path)
+def printGraph(graph, nodeColor=["blue"], titleOfGraph=" "):
+    #positions for all nodes
+    pos=nx.spring_layout(graph)
+    #draw the nodes of the graph
+    nx.draw_networkx_nodes(graph, pos, node_size=500, node_color=nodeColor)
+    #draw the edges of the graph
+    nx.draw_networkx_edges(graph, pos, width=4, edge_color="black")
+    #print labels
+    nx.draw_networkx_labels(graph, pos, font_size=14, font_family="sans-serif")
+    #print the labels related to the edges
+    labels=nx.get_edge_attributes(graph, "weight")
+    plt.title(titleOfGraph)
+    nx.draw_networkx_edge_labels(graph, pos, edge_labels=labels)
+    plt.axis("off") #do not plot any axis
+    plt.show() #display
+
+def drawColoredPathsOnGivenGraph(graph, auxiliaryGraph, shortest_path_routes, coloring_algorithm):
     paths=[]
-    for no_of_route, path in followed_path.iteritems():
+    for no_of_route, path in shortest_path_routes.iteritems():
         paths.append(list(path))
-    print paths
-    #colors=[]
     if coloring_algorithm=="degree_order":
-        colors=copy.copy(coloringGraph(auxiliaryGraph, "degree_order")[1])
-        #for no_of_route, color in coloringGraph(graph, "degree_order")[0].iteritems():
-        #    colors.append(color)
+        colors=copy.copy(coloringGraph(auxiliaryGraph, "degree_order"))
+        plt.title("Lightpaths on the given fiber network (coloring in degree order)")
     elif coloring_algorithm=="alternate_order":
-        colors=copy.copy(coloringGraph(auxiliaryGraph, "alternate_order")[1])
-    print("This is what is returned %s" %(coloringGraph(auxiliaryGraph, "degree_order")[1]))
-    #colors=tuple(colors)
-    print colors
-    print("The paths are %s" %paths)
+        colors=copy.copy(coloringGraph(auxiliaryGraph, "alternate_order"))
+        plt.title("Lightpaths on the given fiber network (coloring in alternate order)")
     pos=nx.drawing.spring_layout(graph)
     pathdr.normalize_layout(pos)
     nx.draw_networkx_labels(graph, pos, font_size=14, font_family="sans-serif")
