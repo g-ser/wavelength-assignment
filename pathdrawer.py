@@ -8,8 +8,8 @@ The modifications are related to the draw_many_paths function.
 While originaly the function was written to randomly choose the 
 color of each path, after the modifications, a list with the desired 
 colors can be passed to the function. Moreover, the function was 
-programmed to sort paths from the longest to the shortest which does
-not apply anymore.
+initially programmed to sort paths from the longest to the shortest 
+which does not apply anymore.
 """
 
 """
