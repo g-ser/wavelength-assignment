@@ -64,14 +64,14 @@ assignwl.printGraph(myAuxiliaryGraph,assignwl.coloringGraph(myAuxiliaryGraph,"al
  "Coloring in alternate order")
 
 """
-Color the predefined routes of the initial graph based on the results 
+Color the routes of the given lighpaths on the given graph based on the results 
 of the coloring algorithm in degree order
 """
 assignwl.drawColoredPathsOnGivenGraph(fiber_network, myAuxiliaryGraph, assignwl.shortestPath(fiber_network,\
  lightpaths), "degree_order")
 
 """
-Color the predefined routes of the initial graph based on the results 
+Color the routes of the given lighpaths on the given graph based on the results 
 of the coloring algorithm in alternate order
 """
 assignwl.drawColoredPathsOnGivenGraph(fiber_network, myAuxiliaryGraph, assignwl.shortestPath(fiber_network,\
