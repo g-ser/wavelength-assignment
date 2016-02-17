@@ -1,5 +1,18 @@
 #!/usr/bin/env python
 """
+This module was written by Maciej Kurant <maciej.kurant@epfl.ch>
+(https://networkx.lanl.gov/trac/ticket/199) and was slightly modified 
+by Georgios Serafeim. 
+
+The modifications are related to the draw_many_paths function. 
+While originaly the function was written to randomly choose the 
+color of each path, after the modifications, a list with the desired 
+colors can be passed to the function. Moreover, the function was 
+programmed to sort paths from the longest to the shortest which does
+not apply anymore.
+"""
+
+"""
 **********
 PathDrawer
 **********
@@ -328,9 +341,6 @@ def draw_many_paths(G, pos, paths, colors, max_shift=0.02, linewidth=3.0):
 
     for i,path in enumerate(edge_paths):
         shifts=[edge2shift.setdefault(e, single_shift)  for e in path]
-        print i
-        print path
-        print colors[i]      
         draw_path(G, pos, path, color=colors[i%len(colors)], linestyle=linestyles[i/len(colors) % len(linestyles)], linewidth=linewidth, shifts=shifts)
         for e in path:   edge2shift[e] += single_shift
 
